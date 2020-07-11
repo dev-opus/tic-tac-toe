@@ -58,3 +58,44 @@ footer {
     font-size: 3.5rem;
     font-weight: lighter;
 }
+
+/* 
+    Player Detials Section
+*/
+
+.main-section {
+    margin-top: 1em;
+}
+
+.wrapper {
+    width: 70vw;
+    max-width: 100%;
+
+    margin: 0 auto;
+}
+
+.player-section {
+    display: flex;
+    justify-content: space-between;
+}
+
+.player-section div {
+    margin-top: 0;
+}
+
+.player-section input {
+    margin-top: 0;
+}
+
+.player-section p {
+    margin-bottom: .5em;
+    text-align: center;
+}
+
+.versus {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    font-size: 1.5rem;
+}
