@@ -1,4 +1,6 @@
-:root {
+@import url('https://fonts.googleapis.com/css2?family=Merienda+One&display=swap');
+
+root {
     box-sizing: border-box;
 }
 
@@ -13,7 +15,7 @@ body * + * {
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Merienda One', cursive, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 html,
@@ -33,4 +35,3 @@ main {
 footer {
     flex-shrink: 0;
 }
-
