@@ -182,3 +182,25 @@ footer {
 .hidden {
     display: none;
 }
+
+/* 
+    INJECTED PLAYER STYLE-SECTION
+*/
+
+.player {
+    display: flex;
+    flex-direction: column;
+}
+
+.player p {
+    margin: 0;
+}
+
+.player .score {
+    margin-top: .5em;
+    padding: 2px 0;
+    background-color: #fff;
+    color: black;
+    text-align: center;
+    font-size: 1.5rem;
+}
