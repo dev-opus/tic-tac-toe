@@ -1,3 +1,12 @@
+/*
+    GLOBAL VARIABLES
+*/
+
+let name1
+let name2
+let player1
+let player2
+
 /* 
     PLAYER OBJECT SECTION
 */
@@ -27,24 +36,25 @@ const PlayerObjectFactory = (name, marker) => {
     }
 }
 
-const start = document.querySelector('.start-restart');
+/*
+    START/RESTART SECTION
+*/
 
+
+const start = document.querySelector('.start-restart');
 start.addEventListener('click', () => {
 
     if (start.innerText === 'start') {
-
-        const name1= document.getElementById('player1').value.toUpperCase();
-        const name2 = document.getElementById('player2').value.toUpperCase();
+        name1 = document.getElementById('player1').value.toUpperCase();
+        name2 = document.getElementById('player2').value.toUpperCase();
 
         if (!name1 || !name2) {
             alert('Player list is incomplete!!!')
-            return
+            return 1
         }
 
-        start.innerText = 'restart'
-
-        const player1 = PlayerObjectFactory(name1, 'X')
-        const player2 = PlayerObjectFactory(name2, 'O')
+        player1 = PlayerObjectFactory(name1, 'X')
+        player2 = PlayerObjectFactory(name2, 'O')
 
         const holder = document.querySelector('.player-section')
         const referenceElem = document.querySelector('.versus')
@@ -58,14 +68,12 @@ start.addEventListener('click', () => {
         const board = document.querySelector('.gameboard-container')
         board.classList.toggle('hidden')
 
-        return
+        return start.innerText = 'restart'
     }
 
     if (start.innerText === 'restart') {
-        console.log('restart baby!!!')
-        let decider = prompt('Do you really want to restart the game at this point (yes/no)?', 'no');
-
-        if (decider.toLowerCase() === 'no') return (console.log('good boy :)'));
+        const decider = prompt('Do you really want to restart the game at this point (yes/no)?', 'no');
+        if (decider.toLowerCase() === 'no') return 0;
 
         if (decider.toLowerCase() === 'yes') {
             const board = document.querySelector('.gameboard-container')
@@ -74,18 +82,11 @@ start.addEventListener('click', () => {
             holder.removeChild(holder.firstElementChild)
             holder.removeChild(holder.lastElementChild)
 
-            const inputElem1 = document.createElement('div')
-            const inputElem2 = document.createElement('div')
-
-            inputElem1.classList.toggle('player')
-            inputElem2.classList.toggle('player')
-
-            inputElem1.innerHTML = '<p>Player 1</p> <input type="text" id="player1">'
-            inputElem2.innerHTML = '<p>Player 2</p> <input type="text" id="player2">'
-
             const referenceElem = document.querySelector('.versus')
-            referenceElem.insertAdjacentElement("beforebegin", inputElem1)
-            referenceElem.insertAdjacentElement("afterend", inputElem2)
+            const addHTML = (num) => `<div class="player"><p>Player ${num}</p> <input type="text" id="player${num}"></div>`;
+
+            referenceElem.insertAdjacentHTML("beforebegin", addHTML(1))
+            referenceElem.insertAdjacentHTML("afterend", addHTML(2))
 
             /* 
                 INSIDE THIS CHAMBER IS WHERE I GET TO:
@@ -96,7 +97,7 @@ start.addEventListener('click', () => {
             */
 
             board.classList.toggle('hidden')
-            start.innerText = 'start'
+            return start.innerText = 'start'
         }
     }
 });
