@@ -12,6 +12,7 @@ const PlayerObjectFactory = (name, marker) => {
     const getName = () => playerName;
     const getMarker = () => playerMarker;
     const getScore = () => score;
+    const resetScore = () => score = 0;
 
     const player = document.createElement('div');
     player.setAttribute('class','player');
@@ -20,7 +21,8 @@ const PlayerObjectFactory = (name, marker) => {
     return {
         player,
         getScore,
-        updateScore
+        updateScore,
+        resetScore
     }
 }
 
