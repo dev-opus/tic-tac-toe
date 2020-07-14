@@ -22,7 +22,8 @@ const PlayerObjectFactory = (name, marker) => {
         player,
         getScore,
         updateScore,
-        resetScore
+        resetScore,
+        getMarker
     }
 }
 
