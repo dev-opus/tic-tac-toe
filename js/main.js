@@ -23,16 +23,17 @@ const PlayerObjectFactory = (name, marker) => {
     const getScore = () => score;
     const resetScore = () => score = 0;
 
-    const player = document.createElement('div');
-    player.setAttribute('class','player');
-    player.innerHTML = `<p>${getName()} <span>(${getMarker()})</span></p><span class='score'>${getScore()}</span>`;
+    const render = document.createElement('div');
+    render.setAttribute('class','player');
+    render.innerHTML = `<p>${getName()} <span>(${getMarker()})</span></p><span class='score'>${getScore()}</span>`;
 
     return {
-        player,
+        render,
         getScore,
         updateScore,
         resetScore,
-        getMarker
+        getMarker,
+        getName
     }
 }
 
@@ -62,8 +63,8 @@ start.addEventListener('click', () => {
         holder.removeChild(holder.firstElementChild)
         holder.removeChild(holder.lastElementChild)
 
-        referenceElem.insertAdjacentElement("beforebegin", player1.player)
-        referenceElem.insertAdjacentElement("afterend", player2.player)
+        referenceElem.insertAdjacentElement("beforebegin", player1.render)
+        referenceElem.insertAdjacentElement("afterend", player2.render)
 
         const board = document.querySelector('.gameboard-container')
         board.classList.toggle('hidden')
