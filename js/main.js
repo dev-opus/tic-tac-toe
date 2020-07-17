@@ -79,6 +79,64 @@ const gameboard = (() => {
     ==============================================================================================================
 */
 
+const game = (() => {
+    const declareWinner = (player, num) => {
+
+        for (let array in gameboard.winningArrays) {
+            if (gameboard.winningArrays[array].every(elem => elem.innerText === player.getMarker())) {
+
+                const scoreBoard = Array.from(document.querySelectorAll('.score'))
+                setTimeout(() => {
+                    player.updateScore()
+                    scoreBoard[num].innerText = player.getScore()
+                }, 100);
+            
+                setTimeout(() => {
+                    alert(`----------- ${player.getName()} WINS! -----------`)
+                }, 150);
+
+                setTimeout(() => {
+                    gameboard.resetMarkers()
+                    gameboard.cells.forEach(cell => cell.innerText = '');
+                }, 1000);
+
+                return
+            }
+        }
+    }
+
+    gameboard.cells.forEach(cell => cell.addEventListener('click', () => {
+
+        // CHECKS TO SEE IF THERE IS A MARK ON THE CELL
+        if (cell.innerText !== '') {
+            console.log('already taken!')  
+            return 1
+        } 
+
+        if (gameboard.currentMark() === undefined) {
+            gameboard.addMark(player1.getMarker())
+            cell.innerText = gameboard.currentMark()
+        }
+        else if (gameboard.currentMark() === player1.getMarker()){
+            gameboard.addMark(player2.getMarker())
+            cell.innerText = gameboard.currentMark()
+
+            declareWinner(player2, 1)
+        }
+        else {
+            gameboard.addMark(player1.getMarker())
+            cell.innerText = gameboard.currentMark()
+
+            declareWinner(player1, 0)
+        }
+   }))
+})();
+
+/*
+    ==============================================================================================================
+    ==============================================================================================================
+*/
+
 /*
     START/RESTART SECTION
 */
