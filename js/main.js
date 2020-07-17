@@ -1,7 +1,6 @@
 /*
     GLOBAL VARIABLES
 */
-
 let name1
 let name2
 let player1
@@ -10,7 +9,6 @@ let player2
 /* 
     PLAYER OBJECT SECTION
 */
-
 const PlayerObjectFactory = (name, marker) => {
     let playerName = name;
     let playerMarker = marker
@@ -37,15 +35,10 @@ const PlayerObjectFactory = (name, marker) => {
     }
 }
 
-/*
-    ========================================================================================================================
-    ========================================================================================================================
-*/
 
 /* 
     GAMEBOARD OBJECT SECTION
 */
-
 const gameboard = (() => {
     let markers = [];
     const addMark = (mark) => markers.push(mark);
@@ -74,11 +67,10 @@ const gameboard = (() => {
     }
 })();  
 
-/* 
-    ==============================================================================================================
-    ==============================================================================================================
-*/
 
+/* 
+   THE GAMEPLAY FUNCTION SECTION
+*/
 const game = (() => {
     const declareWinner = (player, num) => {
 
@@ -92,7 +84,7 @@ const game = (() => {
                 }, 100);
             
                 setTimeout(() => {
-                    alert(`----------- ${player.getName()} WINS! -----------`)
+                    alert(`             ------------------------------------- ${player.getName()} WINS! -------------------------------------`)
                 }, 150);
 
                 setTimeout(() => {
@@ -133,15 +125,8 @@ const game = (() => {
 })();
 
 /*
-    ==============================================================================================================
-    ==============================================================================================================
-*/
-
-/*
     START/RESTART SECTION
 */
-
-
 const start = document.querySelector('.start-restart');
 start.addEventListener('click', () => {
 
