@@ -92,7 +92,6 @@ const gameboard = (() => {
 */
 const game = (() => {
     const declareWinner = (player, num) => {
-        gameboard.tie()
         for (let array in gameboard.winningArrays) {
             if (gameboard.winningArrays[array].every(elem => elem.innerText === player.getMarker())) {
 
@@ -114,6 +113,7 @@ const game = (() => {
                 return
             }
         }
+        gameboard.tie()
     }
 
     gameboard.cells.forEach(cell => cell.addEventListener('click', () => {
