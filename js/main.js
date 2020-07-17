@@ -58,12 +58,31 @@ const gameboard = (() => {
         h: [cells[0], cells[4], cells[8]],
     } 
 
+    const tie = () => {
+        const boolean = gameboard.cells.every(cell => cell.innerText !== '');
+    
+        if (boolean) {
+            console.log('tie');
+
+            setTimeout(() => {
+                alert('             ------------------------------------- IT\'S A TIE! -------------------------------------')
+            }, 150);
+
+            setTimeout(() => {
+                gameboard.resetMarkers()
+                gameboard.cells.forEach(cell => cell.innerText = '');
+            }, 1000);
+            return 1
+        } 
+    }
+
     return {
         addMark,
         currentMark,
         cells,
         winningArrays,
-        resetMarkers
+        resetMarkers,
+        tie
     }
 })();  
 
@@ -73,7 +92,7 @@ const gameboard = (() => {
 */
 const game = (() => {
     const declareWinner = (player, num) => {
-
+        gameboard.tie()
         for (let array in gameboard.winningArrays) {
             if (gameboard.winningArrays[array].every(elem => elem.innerText === player.getMarker())) {
 
