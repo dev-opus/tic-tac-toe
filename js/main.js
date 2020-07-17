@@ -166,6 +166,7 @@ start.addEventListener('click', () => {
 
         holder.removeChild(holder.firstElementChild)
         holder.removeChild(holder.lastElementChild)
+        holder.classList.add('mobile')
 
         referenceElem.insertAdjacentElement("beforebegin", player1.render)
         referenceElem.insertAdjacentElement("afterend", player2.render)
@@ -186,6 +187,7 @@ start.addEventListener('click', () => {
             const holder = document.querySelector('.player-section')
             holder.removeChild(holder.firstElementChild)
             holder.removeChild(holder.lastElementChild)
+            holder.classList.remove('mobile')
 
             const referenceElem = document.querySelector('.versus')
             const addHTML = (num) => `<div class="player"><p>Player ${num}</p> <input type="text" id="player${num}"></div>`;
