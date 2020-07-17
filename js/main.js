@@ -174,15 +174,17 @@ start.addEventListener('click', () => {
             referenceElem.insertAdjacentHTML("beforebegin", addHTML(1))
             referenceElem.insertAdjacentHTML("afterend", addHTML(2))
 
-            /* 
-                INSIDE THIS CHAMBER IS WHERE I GET TO:
+            gameboard.resetMarkers()
+            gameboard.cells.forEach(cell => {
+                setTimeout(() => {
+                    cell.innerText = ''
+                }, 500);
+            })
 
-                    1 - DELETE ALL THE ITEMS IN THE GAMEBOARD ARRAY 
-                    2 - DELETE ALL THE CONTENTS ON THE CELLS OF THE GAMEBOARD
-                    3 - RESET THE PLAYERs SCORE
-            */
+            setTimeout(() => {
+                board.classList.toggle('hidden')
+            }, 1000);
 
-            board.classList.toggle('hidden')
             return start.innerText = 'start'
         }
     }
