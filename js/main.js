@@ -38,6 +38,48 @@ const PlayerObjectFactory = (name, marker) => {
 }
 
 /*
+    ========================================================================================================================
+    ========================================================================================================================
+*/
+
+/* 
+    GAMEBOARD OBJECT SECTION
+*/
+
+const gameboard = (() => {
+    let markers = [];
+    const addMark = (mark) => markers.push(mark);
+    const currentMark = () => markers[markers.length - 1];
+    const resetMarkers = () => markers = [];
+
+    const cells = Array.from(document.querySelectorAll('.cell'))
+
+    const winningArrays = {
+        a: [cells[0], cells[1], cells[2]],
+        b: [cells[3], cells[4], cells[5]],
+        c: [cells[6], cells[7], cells[8]],
+        d: [cells[0], cells[3], cells[6]],
+        e: [cells[1], cells[4], cells[7]],
+        f: [cells[2], cells[5], cells[8]],
+        g: [cells[6], cells[4], cells[2]],
+        h: [cells[0], cells[4], cells[8]],
+    } 
+
+    return {
+        addMark,
+        currentMark,
+        cells,
+        winningArrays,
+        resetMarkers
+    }
+})();  
+
+/* 
+    ==============================================================================================================
+    ==============================================================================================================
+*/
+
+/*
     START/RESTART SECTION
 */
 
