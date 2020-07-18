@@ -8,4 +8,4 @@ to flex my understanding on the concept of creating objects in javascript using 
 
 To play *with a friend*, visit https://dev-opus.github.io/tic-tac-toe/
 
-(mobile responsive implementation coming soon!!!)
+PS: This game a decent responsive interface on both mobile and desktop displays!
