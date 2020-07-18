@@ -222,3 +222,28 @@ footer > p > a {
 footer > p > a:hover {
     color: #f9d46eb4;
 }
+
+/* 
+    MOBILE RESONSIVENESS SECTION
+*/
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) {
+
+    .wrapper {
+        width: 100%;
+    }
+
+    .player-section {
+        display: block;
+    }
+
+    .gameboard {
+        grid-template-columns: repeat(3, 100px);
+        grid-template-rows: repeat(3, 100px);
+    }
+
+    .mobile {
+        display: flex;
+        justify-content: space-between;
+    }
+}
